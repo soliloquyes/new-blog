@@ -1,9 +1,6 @@
 import { z } from "zod";
 import type { Messages } from "@/lib/i18n";
-import {
-  MAX_SOCIAL_LINKS,
-  SOCIAL_PLATFORM_KEYS,
-} from "./utils/social-platforms";
+import { SOCIAL_PLATFORM_KEYS } from "./utils/social-platforms";
 
 export const SocialLinkSchema = z.object({
   platform: z.enum(SOCIAL_PLATFORM_KEYS),
@@ -289,7 +286,7 @@ export const FullSiteConfigSchema = z.object({
   title: createSiteTextSchema(120),
   author: createSiteTextSchema(80),
   description: createSiteTextSchema(300),
-  social: z.array(SocialLinkSchema).max(MAX_SOCIAL_LINKS),
+  social: z.array(SocialLinkSchema),
   icons: z.object({
     faviconSvg: createAssetPathSchema(),
     faviconIco: createAssetPathSchema(),
@@ -309,7 +306,7 @@ export function createSiteConfigInputFormSchema(messages: Messages) {
     title: createSiteTextFormSchema(120, messages).optional(),
     author: createSiteTextFormSchema(80, messages).optional(),
     description: createSiteTextFormSchema(300, messages).optional(),
-    social: z.array(SocialLinkSchema).max(MAX_SOCIAL_LINKS).optional(),
+    social: z.array(SocialLinkSchema).optional(),
     icons: z
       .object({
         faviconSvg: createOptionalAssetPathFormSchema(messages).optional(),
@@ -334,7 +331,7 @@ export const SiteConfigInputSchema = z.object({
   title: createSiteTextSchema(120).optional(),
   author: createSiteTextSchema(80).optional(),
   description: createSiteTextSchema(300).optional(),
-  social: z.array(SocialLinkSchema).max(MAX_SOCIAL_LINKS).optional(),
+  social: z.array(SocialLinkSchema).optional(),
   icons: z
     .object({
       faviconSvg: createOptionalAssetPathSchema().optional(),

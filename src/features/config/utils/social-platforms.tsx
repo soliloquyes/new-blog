@@ -75,5 +75,3 @@ export const SOCIAL_PLATFORMS: Record<
   email: { icon: Mail, label: "Email" },
   rss: { icon: Rss, label: "RSS" },
 };
-
-export const MAX_SOCIAL_LINKS = 6;

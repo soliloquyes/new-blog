@@ -1132,7 +1132,6 @@
   "settings_social_url_ph": "https://...",
   "settings_social_icon": "Icon",
   "settings_social_label_ph": "Display name",
-  "settings_social_max_reached": "Maximum {max} links",
   "settings_social_custom": "Custom",
   "settings_site_field_favicon_svg": "Favicon SVG",
   "settings_site_field_favicon_ico": "Favicon ICO",
